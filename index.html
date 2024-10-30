@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="jpg/png">
+    <title>Unoccupied Room Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+        <img src="logo.png" alt="Logo" style="vertical-align: middle;">
+        <span>CSI X VIT AP</span>
+    </nav>
+
+    <section class="intro">
+        <div class="container">
+            <div class="left-section">
+                <h1>Welcome to Unoccupied Room Finder!</h1>
+                <p class="description">Are you a student at VITAP University looking for a quiet space to relax between classes? 
+                The Unoccupied Room Finder is here to help! Easily locate unoccupied rooms in the AB1, AB2, and CB blocks with just a few clicks. 
+                Whether you need a place to study, take a break, or catch up with friends, our tool provides real-time room availability so you 
+                can find the perfect spot without the hassle.</p><br>
+        
+                <p class="description">No more wandering around campus searching for free spaces—let the Unoccupied Room Finder guide you to your next peaceful retreat. 
+                <br><br>Choose any one block and click “Find Room” to navigate.</p>
+        
+                <div class="button-container">
+                    <a href="#room" class="button">Find Room</a>
+                </div>
+            </div>
+        
+            <div class="right-section">
+                <div class="block-row">
+                    <div class="block"><img src="ab1.png" alt="Academic Block 1"></div>
+                    <div class="block-title">Academic Block 1 <br>(AB1)</div>
+                </div>
+                <div class="block-row">
+                    <div class="block-title">Central Block (CB)</div>
+                    <div class="block"><img src="cb.png" alt="Central Block"></div>
+                </div>
+                <div class="block-row">
+                    <div class="block"><img src="ab2.png" alt="Academic Block 2"></div>
+                    <div class="block-title">Academic Block 2<br> (AB2)</div>
+                </div>
+            </div>
+        
+            <div class="right-section-2">
+                <div class="block-row">
+                    <div class="block"><img src="ab1.png" alt="Academic Block 1"></div>
+                    <div class="block-title">Academic Block 1 <br>(AB1)</div>
+                </div>
+                <div class="block-row">
+                    <div class="block"><img src="cb.png" alt="Central Block"></div>
+                    <div class="block-title">Central Block (CB)</div>
+                </div>
+                <div class="block-row">
+                    <div class="block"><img src="ab2.png" alt="Academic Block 2"></div>
+                    <div class="block-title">Academic Block 2<br> (AB2)</div>
+                </div>
+            </div>
+
+            <div class="button-container2">
+                <a href="#room" class="button2">Find Room</a>
+            </div>
+    </section>
+
+    <section class="find-room" id="room">
+        <div class="dropdown-menu">
+            <div class="dcont">
+                <div class="text">
+                    <p>Please choose the day and time slot so that we can help you find a suitable classroom</p>
+                </div>
+    
+                <div class="dropdown"> 
+                    <div class="dropdown-wrapper">
+                        <select name="day" id="day">
+                            <option value="default">Select day</option>
+                            <option value="TUE">Tuesday</option>
+                            <option value="WED">Wednesday</option>
+                            <option value="THU">Thursday</option>
+                            <option value="FRI">Friday</option>
+                            <option value="SAT">Saturday</option>
+                        </select>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="dropdown"> 
+                    <div class="dropdown-wrapper">
+                        <select name="slot" id="slot">
+                            <option value="default">Select slot</option>
+                            <option value="08:00-08:50">08:00-08:50</option>
+                            <option value="09:00-09:50">09:00-09:50</option>
+                            <option value="09:51-10:50">09:51-10:50</option>
+                            <option value="10:51-11:50">10:51-11:50</option>
+                            <option value="11:51-12:50">11:51-12:50</option>
+                            <option value="12:51-13:50">12:51-13:50</option>
+                            <option value="14:00-14:50">14:00-14:50</option>
+                            <option value="14:51-15:50">14:51-15:50</option>
+                            <option value="15:51-16:50">15:51-16:50</option>
+                            <option value="16:51-17:50">16:51-17:50</option>
+                            <option value="17:51-18:50">17:51-18:50</option>
+                            <option value="18:51-19:50">18:51-19:50</option>
+                        </select>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+                <button class="go" onclick="fetchAndUpdateRooms()">Go</button>
+            </div>
+        </div>
+    
+        <br><br><br><br>
+    
+        <div class="room-text">Room Details</div>
+        <div class="room-info">
+            <table id="room-table">
+                <tr>
+                    <th style="width:200px;">Block</th>
+                    <th style="width:250px">Floor</th>
+                    <th>Class Rooms</th>
+                </tr>
+                <tr>
+                    <td rowspan="5">AB1</td>
+                    <td style="height:50px">Ground Floor</td>
+                    <td class="cr" data-block="AB1" data-floor="G">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">1st Floor</td>
+                    <td class="cr" data-block="AB1" data-floor="1">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">2nd Floor</td>
+                    <td class="cr" data-block="AB1" data-floor="2">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">3rd Floor</td>
+                    <td class="cr" data-block="AB1" data-floor="3">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">4th Floor</td>
+                    <td class="cr" data-block="AB1" data-floor="4">-</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5">AB2</td>
+                    <td style="height:50px">Ground Floor</td>
+                    <td class="cr" data-block="AB2" data-floor="G">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">1st Floor</td>
+                    <td class="cr" data-block="AB2" data-floor="1">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">2nd Floor</td>
+                    <td class="cr" data-block="AB2" data-floor="2">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">3rd Floor</td>
+                    <td class="cr" data-block="AB2" data-floor="3">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">4th Floor</td>
+                    <td class="cr" data-block="AB2" data-floor="4">-</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5">CB</td>
+                    <td style="height:50px">Ground Floor</td>
+                    <td class="cr" data-block="CB" data-floor="G">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">1st Floor</td>
+                    <td class="cr" data-block="CB" data-floor="1">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">2nd Floor</td>
+                    <td class="cr" data-block="CB" data-floor="2">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">3rd Floor</td>
+                    <td class="cr" data-block="CB" data-floor="3">-</td>
+                </tr>
+                <tr>
+                    <td style="height:50px">4th Floor</td>
+                    <td class="cr" data-block="CB" data-floor="4">-</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <br>
+    <footer>
+        <div class="logo"> 
+            <img src="logo.png" alt="Logo">
+            <span class="footer-main">CSI | </span>
+            <span class="footer-sub">© 2017-2024, CSI Chapter</span>
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com" target="_blank" class="icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
