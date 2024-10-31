@@ -44,13 +44,13 @@ The Unoccupied Room Finder is a web application designed to assist students at V
    ```
 ---
 ## Usage
-### 1) Running Locally
+### Running Locally:
    Run the Flask app in your local environment:
    ```bash
    python app.py
    ```
    Access the app at [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
-### 2) Running Live
+### Running Live:
    Access the app at:
    [https://csi-project-urf.vercel.app/](https://csi-project-urf.vercel.app/)
