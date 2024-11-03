@@ -41,3 +41,19 @@ async function fetchAndUpdateRooms() {
         alert('An error occurred while fetching room data. Please try again later.');
     }
 }
+
+// addded smooth scrolling to the page
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+  
+        const targetId = this.getAttribute("href");
+        if (targetId === '#home') { // If the target is the home section
+            location.reload(); // Reload the page
+        } else {
+            document.querySelector(targetId).scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    });
+  });
